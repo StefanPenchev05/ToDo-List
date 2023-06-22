@@ -6,7 +6,8 @@ interface List{
     save():void,
     addItem(itemObj: ListItem): void,
     clearList():void,
-    removeItem(id:string):void
+    removeItem(id:string):void,
+    checkExist(input:string):boolean
 }
 
 export default class FullListItem implements List{
@@ -47,5 +48,13 @@ export default class FullListItem implements List{
     removeItem(id: string): void {
         this._list = this._list.filter(item => item.id !== id);
         this.save();
+    }
+
+    checkExist(input:string): boolean {
+        this._list.forEach(el => {
+            if(input === el.item) return true
+        });
+
+        return false;
     }
 }
