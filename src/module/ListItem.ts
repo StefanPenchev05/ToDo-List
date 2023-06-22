@@ -8,7 +8,7 @@ export default class ListItem implements Item{
     constructor(
         private _id = '', 
         private _item = '',
-        private _checked = true
+        private _checked = false
     ){}
 
     get id():string{
