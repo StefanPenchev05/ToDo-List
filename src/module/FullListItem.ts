@@ -51,10 +51,6 @@ export default class FullListItem implements List{
     }
 
     checkExist(input:string): boolean {
-        this._list.forEach(el => {
-            if(input === el.item) return true
-        });
-
-        return false;
+        return this._list.some((el) => el.item.trim() === input);
     }
 }

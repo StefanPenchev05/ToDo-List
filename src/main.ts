@@ -16,8 +16,11 @@ const initApp = ():void =>{
         const input = document.getElementById('newItem') as HTMLInputElement;
         const newEntryText: string = input.value.trim();
         if(!newEntryText.length) return;
-        if(fullList.checkExist(input.value)) return;
+        if(fullList.checkExist(newEntryText) === true){
+            return;
+        }
 
+        // console.log(newEntryText);
         const itemId = fullList.list.length  
         ? parseInt(fullList.list[fullList.list.length - 1].id) + 1  : 1;
         
